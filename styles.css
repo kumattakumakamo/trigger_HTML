@@ -1,7 +1,7 @@
 @media screen and (max-width: 600px) {
     body {
-        /* 縦横両方のスクロールを禁止 */
-        overflow: hidden;
+        margin: 0;
+        padding: 0;
         background-color: rgb(232, 225, 223);
         color: rgb(0, 0, 0);
     }
@@ -68,16 +68,24 @@
     }
 
     .main-content {
-        margin-top: 60px;
-        /* ヘッダーの高さ分のマージンを追加 */
-        margin-bottom: 60px;
-        /* フッターの高さ分のマージンを追加 */
+
         display: grid;
         /* グリッドレイアウトを使用 */
         place-content: center;
+
         /* コンテンツを中央に配置 */
         justify-items: center;
         /* 各子要素を「Hug Contents」にする */
+        height: 100vh;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .mini-content {
+        margin-bottom: 20px;
     }
 
 }
