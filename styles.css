@@ -72,6 +72,12 @@
         /* ヘッダーの高さ分のマージンを追加 */
         margin-bottom: 60px;
         /* フッターの高さ分のマージンを追加 */
+        display: grid;
+        /* グリッドレイアウトを使用 */
+        place-content: center;
+        /* コンテンツを中央に配置 */
+        justify-items: center;
+        /* 各子要素を「Hug Contents」にする */
     }
 
 }

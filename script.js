@@ -1,10 +1,10 @@
-const btn = document.getElementById('myButton');
-const content = document.getElementById('targetContent');
+const btn1 = document.getElementById('b1');
+const content1 = document.getElementById('p1');
 
-btn.addEventListener('click', () => {//ボタンがクリックされたときの処理
-    if (content.style.display === 'none') {
-        content.style.display = 'block';//コンテンツを表示
+btn1.addEventListener('click', () => {//ボタンがクリックされたときの処理
+    if (content1.style.display === 'none') {
+        content1.style.display = 'block';//コンテンツを表示
     } else {
-        content.style.display = 'none';//コンテンツを非表示
+        content1.style.display = 'none';//コンテンツを非表示
     }
 });
