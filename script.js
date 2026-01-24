@@ -5,7 +5,7 @@ const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
 const content2_2 = document.getElementById('p2_2');
 const content3 = document.getElementById('p3');
-
+const content2_2_2 = document.getElementById('p2_2_2');
 let ngList = [];
 
 // 1. CSVファイルを読み込む関数
@@ -46,8 +46,9 @@ btn1.addEventListener('click', () => {//ボタンがクリックされたとき�
 btn2.addEventListener('click', () => {
     if (ngList.length === 0) return;
 
-    // ボタンを非表示にする
+    // ボタンとコンテンツを非表示にする
     btn2.style.display = 'none';
+    content2.style.display = 'none';
 
     // ランダムに1つ選ぶ
     const randomIndex = Math.floor(Math.random() * ngList.length);
@@ -60,8 +61,10 @@ btn2.addEventListener('click', () => {
     resultElement.style.fontWeight = "bold";
     resultElement.style.textAlign = "center";
     resultElement.style.margin = "20px";
-    content2.appendChild(resultElement);
+    content2_2.appendChild(resultElement);
     content2_2.style.display = 'block';
+    content2_2_2.appendChild(resultElement);
+    content2_2_2.style.display = 'block';
     btn2_2.before(resultElement);
     btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
 });
