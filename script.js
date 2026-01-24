@@ -3,6 +3,8 @@ const btn2 = document.getElementById('b2');
 const btn2_2 = document.getElementById('b2_2');
 const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
+const content2_2 = document.getElementById('p2_2');
+const content3 = document.getElementById('p3');
 
 let ngList = [];
 
@@ -59,6 +61,15 @@ btn2.addEventListener('click', () => {
     resultElement.style.textAlign = "center";
     resultElement.style.margin = "20px";
     content2.appendChild(resultElement);
+    content2_2.style.display = 'block';
     btn2_2.before(resultElement);
     btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
+});
+btb2_2.addEventListener('click', () => {
+    if (content2_2.style.display === 'none') {
+        content2_2.style.display = 'block';//コンテンツを表示
+    } else {
+        content2_2.style.display = 'none';//コンテンツを非表示
+        content3.style.display = 'block';//次のコンテンツを表示
+    }
 });
