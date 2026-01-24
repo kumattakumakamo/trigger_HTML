@@ -61,7 +61,6 @@ btn2.addEventListener('click', () => {
     resultElement.style.fontWeight = "bold";
     resultElement.style.textAlign = "center";
     resultElement.style.margin = "20px";
-    content2_2.appendChild(resultElement);
     content2_2.style.display = 'block';
     content2_2_2.appendChild(resultElement);
     content2_2_2.style.display = 'block';
