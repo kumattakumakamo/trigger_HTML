@@ -57,7 +57,7 @@ btn2.addEventListener('click', () => {
     resultElement.style.fontSize = "1.8rem";
     resultElement.style.fontWeight = "bold";
     resultElement.style.textAlign = "center";
-    resultElement.style.marginTop = "20px";
+    resultElement.style.margin = "20px";
     content2.appendChild(resultElement);
     btn2_2.before(resultElement);
     btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
