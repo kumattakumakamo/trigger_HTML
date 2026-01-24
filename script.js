@@ -1,5 +1,6 @@
 const btn1 = document.getElementById('b1');
 const btn2 = document.getElementById('b2');
+const btn2_2 = document.getElementById('b2_2');
 const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
 
@@ -58,4 +59,5 @@ btn2.addEventListener('click', () => {
     resultElement.style.textAlign = "center";
     resultElement.style.marginTop = "20px";
     content2.appendChild(resultElement);
+    btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
 });
