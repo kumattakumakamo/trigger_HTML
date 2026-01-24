@@ -59,5 +59,6 @@ btn2.addEventListener('click', () => {
     resultElement.style.textAlign = "center";
     resultElement.style.marginTop = "20px";
     content2.appendChild(resultElement);
+    btn2_2.before(resultElement);
     btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
 });
