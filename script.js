@@ -64,7 +64,6 @@ btn2.addEventListener('click', () => {
     content2_2.style.display = 'block';
     content2_2_2.before(resultElement);
     content2_2_2.style.display = 'block';
-    btn2_2.before(resultElement);
     btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
 });
 btn2_2.addEventListener('click', () => {
