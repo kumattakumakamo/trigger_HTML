@@ -51,19 +51,19 @@ btn2.addEventListener('click', () => {
     content2.style.display = 'none';
 
     // ランダムに1つ選ぶ
-    const randomIndex = Math.floor(Math.random() * ngList.length);
-    const selectedAction = ngList[randomIndex];
+    const randomIndex = Math.floor(Math.random() * ngList.length);// 0からngList.length-1までのランダムな整数
+    const selectedAction = ngList[randomIndex];// ランダムに選ばれた行
 
     // 結果を表示
-    const resultElement = document.createElement('p');
-    resultElement.textContent = selectedAction;
-    resultElement.style.fontSize = "1.8rem";
-    resultElement.style.fontWeight = "bold";
-    resultElement.style.textAlign = "center";
-    resultElement.style.margin = "20px";
-    content2_2.style.display = 'block';
-    content2_2_2.before(resultElement);
-    content2_2_2.style.display = 'block';
+    const resultElement = document.createElement('p');// 新しい<p>要素を作成
+    resultElement.textContent = selectedAction;// 選ばれた行をテキストとして設定
+    resultElement.style.fontSize = "1.8rem";// フォントサイズを大きくする
+    resultElement.style.fontWeight = "bold";// 太字にする
+    resultElement.style.textAlign = "center";// 中央揃えにする
+    resultElement.style.margin = "20px";// マージンを追加
+    content2_2.style.display = 'block';//コンテンツを表示
+    content2_2_2.before(resultElement);// 結果をcontent2_2_2の前に挿入
+    content2_2_2.style.display = 'block';//コンテンツを表示
     btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
 });
 btn2_2.addEventListener('click', () => {
