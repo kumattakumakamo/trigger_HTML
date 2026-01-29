@@ -5,7 +5,8 @@ const btn3 = document.getElementById('b3');
 const btn4 = document.getElementById('b4');
 const btn5_a = document.getElementById('b5_a');
 const btn5_b = document.getElementById('b5_b');
-const btn6 = document.getElementById('b6');
+const btn6_a = document.getElementById('b6_a');
+const btn6_b = document.getElementById('b6_b');
 
 const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
@@ -142,7 +143,20 @@ btn5_b.addEventListener('click', () => {
         content6_b.style.display = 'block';//次のコンテンツを表示
     }
 });
-btn6.addEventListener('click', () => {
+btn6_a.addEventListener('click', () => {
+    content6_a.style.display = 'none';//コンテンツを非表示
+    content2_2.style.display = 'none';//コンテンツを非表示
+    content6_b.style.display = 'none';//コンテンツを非表示
+    content1.style.display = 'block';//次のコンテンツを表示
+
+    // 追加：結果表示エリアを空にする
+    resultDisplay.textContent = "";
+    // 追加：隠していた「次へ」ボタンを再表示させておく
+    btn2.style.display = 'block';
+
+    content1.style.display = 'block';
+});
+btn6_b.addEventListener('click', () => {
     content6_a.style.display = 'none';//コンテンツを非表示
     content2_2.style.display = 'none';//コンテンツを非表示
     content6_b.style.display = 'none';//コンテンツを非表示
