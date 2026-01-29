@@ -23,7 +23,7 @@ const resultDisplay = document.getElementById('result-display');
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
 
 const soundA = new Audio('拳銃を撃つ.mp3'); // 判定A用の音
-const soundB = new Audio('弾切れ(1).mp3'); // 判定B用の音（もし分けるなら）
+const soundB = new Audio('弾切れ (1).mp3'); // 判定B用の音（もし分けるなら）
 
 let ngList = [];
 let timerInterval = null;
