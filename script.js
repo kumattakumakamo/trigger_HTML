@@ -17,6 +17,8 @@ const content5 = document.getElementById('p5');
 const content6_a = document.getElementById('p6_a');
 const content6_b = document.getElementById('p6_b');
 
+const resultDisplay = document.getElementById('result-display');
+
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
 
 let ngList = [];
@@ -68,17 +70,16 @@ btn2.addEventListener('click', () => {
     const selectedAction = ngList[randomIndex];// ランダムに選ばれた行
 
     // 結果を表示
-    const resultElement = document.createElement('p');// 新しい<p>要素を作成
-    resultElement.textContent = selectedAction;// 選ばれた行をテキストとして設定
-    resultElement.style.fontSize = "1.8rem";// フォントサイズを大きくする
-    resultElement.style.fontWeight = "bold";// 太字にする
-    resultElement.style.textAlign = "center";// 中央揃えにする
-    resultElement.style.margin = "20px";// マージンを追加
+    resultDisplay.textContent = selectedAction;
+    resultDisplay.style.fontSize = "1.8rem";
+    resultDisplay.style.fontWeight = "bold";
+    resultDisplay.style.textAlign = "center";
+    resultDisplay.style.margin = "20px";
+    resultDisplay.style.display = "block"; // 確実に見えるようにする
 
-    content2_2.style.display = 'block';//コンテンツを表示
-    content2_2_2.before(resultElement);// 結果をcontent2_2_2の前に挿入
-    content2_2_2.style.display = 'block';//コンテンツを表示
-    btn2_2.style.display = 'block'; //「確認完了」ボタンを表示
+    content2_2.style.display = 'block';
+    content2_2_2.style.display = 'block';
+    btn2_2.style.display = 'block';
 });
 btn2_2.addEventListener('click', () => {
     if (content2_2.style.display === 'none') {
@@ -146,4 +147,11 @@ btn6.addEventListener('click', () => {
     content2_2.style.display = 'none';//コンテンツを非表示
     content6_b.style.display = 'none';//コンテンツを非表示
     content1.style.display = 'block';//次のコンテンツを表示
+
+    // 追加：結果表示エリアを空にする
+    resultDisplay.textContent = "";
+    // 追加：隠していた「次へ」ボタンを再表示させておく
+    btn2.style.display = 'block';
+
+    content1.style.display = 'block';
 });
