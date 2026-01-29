@@ -2,11 +2,13 @@ const btn1 = document.getElementById('b1');
 const btn2 = document.getElementById('b2');
 const btn2_2 = document.getElementById('b2_2');
 const btn3 = document.getElementById('b3');
+const btn4 = document.getElementById('b4');
 const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
 const content2_2 = document.getElementById('p2_2');
-const content3 = document.getElementById('p3');
 const content2_2_2 = document.getElementById('p2_2_2');
+const content3 = document.getElementById('p3');
+const content4 = document.getElementById('p4');
 
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
 
@@ -98,5 +100,20 @@ btn2_2.addEventListener('click', () => {
         const timerInterval = setInterval(updateCountDown, 1000);
         updateCountDown();
     }
-}
-);
+});
+btn3.addEventListener('click', () => {
+    if (content3.style.display === 'none') {
+        content3.style.display = 'block';//コンテンツを表示
+    } else {
+        content3.style.display = 'none';//コンテンツを非表示
+        content4.style.display = 'block';//次のコンテンツを表示
+    }
+});
+btn4.addEventListener('click', () => {
+    if (content4.style.display === 'none') {
+        content4.style.display = 'block';//コンテンツを表示
+    } else {
+        content4.style.display = 'none';//コンテンツを非表示
+        //    content5.style.display = 'block';//次のコンテンツを表示
+    }
+});
