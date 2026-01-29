@@ -85,7 +85,7 @@ btn2_2.addEventListener('click', () => {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             countDown.textContent = seconds;
 
-            countDown.textContent = `${String(seconds).padStart(2, '0')}`;
+            countDown.textContent = `残り思考時間：${String(seconds).padStart(2, '0')}秒`;
             if (distance < 0) {
                 clearInterval(interval);
                 countDown.textContent = '終了';
