@@ -90,11 +90,14 @@ btn2_2.addEventListener('click', () => {
     if (content2_2.style.display === 'none') {
         content2_2.style.display = 'block';//コンテンツを表示
     } else {
+        resultDisplay.style.color = "gray";
+        resultDisplay.style.fontSize = "1.2rem";
         if (timerInterval) clearInterval(timerInterval);
 
         const targetTime = new Date().getTime() + 30000; // 30秒後のタイムスタンプを計算
         content2_2_2.style.display = 'none';//コンテンツを非表示
         btn2_2.style.display = 'none';//ボタンを非表示
+
         content3.style.display = 'block';//次のコンテンツを表示
         //resultElement.style.display = 'block'; // 結果を表示
         function updateCountDown() {
@@ -162,6 +165,8 @@ btn6_a.addEventListener('click', () => {
 
     // 追加：結果表示エリアを空にする
     resultDisplay.textContent = "";
+    resultDisplay.style.color = "black"; // 色を元に戻す
+    resultDisplay.style.fontSize = "1.8rem"; // サイズを元に戻す
     // 追加：隠していた「次へ」ボタンを再表示させておく
     btn2.style.display = 'block';
 
@@ -180,6 +185,8 @@ btn6_b.addEventListener('click', () => {
 
     // 追加：結果表示エリアを空にする
     resultDisplay.textContent = "";
+    resultDisplay.style.color = "black"; // 色を元に戻す
+    resultDisplay.style.fontSize = "1.8rem"; // サイズを元に戻す
     // 追加：隠していた「次へ」ボタンを再表示させておく
     btn2.style.display = 'block';
 
