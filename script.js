@@ -3,12 +3,19 @@ const btn2 = document.getElementById('b2');
 const btn2_2 = document.getElementById('b2_2');
 const btn3 = document.getElementById('b3');
 const btn4 = document.getElementById('b4');
+const btn5_a = document.getElementById('b5_a');
+const btn5_b = document.getElementById('b5_b');
+const btn6 = document.getElementById('b6');
+
 const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
 const content2_2 = document.getElementById('p2_2');
 const content2_2_2 = document.getElementById('p2_2_2');
 const content3 = document.getElementById('p3');
 const content4 = document.getElementById('p4');
+const content5 = document.getElementById('p5');
+const content6_a = document.getElementById('p6_a');
+const content6_b = document.getElementById('p6_b');
 
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
 
@@ -114,6 +121,28 @@ btn4.addEventListener('click', () => {
         content4.style.display = 'block';//コンテンツを表示
     } else {
         content4.style.display = 'none';//コンテンツを非表示
-        //    content5.style.display = 'block';//次のコンテンツを表示
+        content5.style.display = 'block';//次のコンテンツを表示
     }
+});
+
+btn5_a.addEventListener('click', () => {
+    if (content5.style.display === 'none') {
+        content5.style.display = 'block';//コンテンツを表示
+    } else {
+        content5.style.display = 'none';//コンテンツを非表示
+        content6_a.style.display = 'block';//次のコンテンツを表示
+    }
+});
+btn5_b.addEventListener('click', () => {
+    if (content5.style.display === 'none') {
+        content5.style.display = 'block';//コンテンツを表示
+    } else {
+        content5.style.display = 'none';//コンテンツを非表示
+        content6_b.style.display = 'block';//次のコンテンツを表示
+    }
+});
+btn6.addEventListener('click', () => {
+    content6_a.style.display = 'none';//コンテンツを非表示
+    content6_b.style.display = 'none';//コンテンツを非表示
+    content1.style.display = 'block';//次のコンテンツを表示
 });
