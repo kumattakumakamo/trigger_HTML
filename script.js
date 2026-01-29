@@ -91,7 +91,6 @@ btn2_2.addEventListener('click', () => {
         content2_2.style.display = 'block';//コンテンツを表示
     } else {
         resultDisplay.style.color = "gray";
-        resultDisplay.style.fontSize = "1.2rem";
         if (timerInterval) clearInterval(timerInterval);
 
         const targetTime = new Date().getTime() + 30000; // 30秒後のタイムスタンプを計算
