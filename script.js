@@ -1,11 +1,15 @@
 const btn1 = document.getElementById('b1');
 const btn2 = document.getElementById('b2');
 const btn2_2 = document.getElementById('b2_2');
+const btn3 = document.getElementById('b3');
 const content1 = document.getElementById('p1');
 const content2 = document.getElementById('p2');
 const content2_2 = document.getElementById('p2_2');
 const content3 = document.getElementById('p3');
 const content2_2_2 = document.getElementById('p2_2_2');
+
+const countDown = document.getElementById('countdown');//カウントダウン表示用要素
+
 let ngList = [];
 
 // 1. CSVファイルを読み込む関数
@@ -61,6 +65,7 @@ btn2.addEventListener('click', () => {
     resultElement.style.fontWeight = "bold";// 太字にする
     resultElement.style.textAlign = "center";// 中央揃えにする
     resultElement.style.margin = "20px";// マージンを追加
+
     content2_2.style.display = 'block';//コンテンツを表示
     content2_2_2.before(resultElement);// 結果をcontent2_2_2の前に挿入
     content2_2_2.style.display = 'block';//コンテンツを表示
@@ -70,7 +75,24 @@ btn2_2.addEventListener('click', () => {
     if (content2_2.style.display === 'none') {
         content2_2.style.display = 'block';//コンテンツを表示
     } else {
+        const targetTime = new Date().getTime() + 30000; // 30秒後のタイムスタンプを計算
         content2_2.style.display = 'none';//コンテンツを非表示
         content3.style.display = 'block';//次のコンテンツを表示
+        function updateCountDown() {
+            const now = new Date().getTime();
+            const distance = targetTime - now;
+
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countDown.textContent = seconds;
+
+            countDown.textContent = `${String(seconds).padStart(2, '0')}`;
+            if (distance < 0) {
+                clearInterval(interval);
+                countDown.textContent = '終了しました';
+            }
+        }
+        const interval = setInterval(updateCountDown, 1000);
+        updateCountDown();
     }
-});
+}
+);
