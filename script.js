@@ -18,6 +18,7 @@ const content5 = document.getElementById('p5');
 const content6_a = document.getElementById('p6_a');
 const content6_b = document.getElementById('p6_b');
 
+const ngContainer = document.getElementById('ng-container');
 const resultDisplay = document.getElementById('result-display');
 
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
@@ -90,7 +91,7 @@ btn2_2.addEventListener('click', () => {
     if (content2_2.style.display === 'none') {
         content2_2.style.display = 'block';//コンテンツを表示
     } else {
-        resultDisplay.style.color = "gray";
+        ngContainer.style.color = "gray";
         if (timerInterval) clearInterval(timerInterval);
 
         const targetTime = new Date().getTime() + 30000; // 30秒後のタイムスタンプを計算
@@ -163,9 +164,9 @@ btn6_a.addEventListener('click', () => {
     content1.style.display = 'block';//次のコンテンツを表示
 
     // 追加：結果表示エリアを空にする
+    ngContainer.style.color = "black";
+    ngContainer.style.fontSize = "1.8rem";
     resultDisplay.textContent = "";
-    resultDisplay.style.color = "black"; // 色を元に戻す
-    resultDisplay.style.fontSize = "1.8rem"; // サイズを元に戻す
     // 追加：隠していた「次へ」ボタンを再表示させておく
     btn2.style.display = 'block';
 
@@ -183,9 +184,9 @@ btn6_b.addEventListener('click', () => {
     content1.style.display = 'block';//次のコンテンツを表示
 
     // 追加：結果表示エリアを空にする
+    ngContainer.style.color = "black";
+    ngContainer.style.fontSize = "1.8rem";
     resultDisplay.textContent = "";
-    resultDisplay.style.color = "black"; // 色を元に戻す
-    resultDisplay.style.fontSize = "1.8rem"; // サイズを元に戻す
     // 追加：隠していた「次へ」ボタンを再表示させておく
     btn2.style.display = 'block';
 
