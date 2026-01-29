@@ -23,6 +23,7 @@ const resultDisplay = document.getElementById('result-display');
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
 
 let ngList = [];
+let timerInterval = null;
 
 // 1. CSVファイルを読み込む関数
 async function loadCSV() {
@@ -86,27 +87,25 @@ btn2_2.addEventListener('click', () => {
     if (content2_2.style.display === 'none') {
         content2_2.style.display = 'block';//コンテンツを表示
     } else {
+        if (timerInterval) clearInterval(timerInterval);
+
         const targetTime = new Date().getTime() + 30000; // 30秒後のタイムスタンプを計算
         content2_2_2.style.display = 'none';//コンテンツを非表示
         btn2_2.style.display = 'none';//ボタンを非表示
-
         content3.style.display = 'block';//次のコンテンツを表示
         //resultElement.style.display = 'block'; // 結果を表示
         function updateCountDown() {
             const now = new Date().getTime();
             const distance = targetTime - now;
-
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            countDown.textContent = seconds;
-
-            countDown.textContent = `残り思考時間：${String(seconds).padStart(2, '0')}秒`;
             if (distance < 0) {
-                clearInterval(interval);
+                clearInterval(timerInterval); // 終了時に停止
                 countDown.textContent = '思考時間終了';
+            } else {
+                countDown.textContent = `残り思考時間：${String(seconds).padStart(2, '0')}秒`;
             }
         }
-        const interval = setInterval(updateCountDown, 1000);
-        const timerInterval = setInterval(updateCountDown, 1000);
+        timerInterval = setInterval(updateCountDown, 1000);
         updateCountDown();
     }
 });
@@ -144,6 +143,11 @@ btn5_b.addEventListener('click', () => {
     }
 });
 btn6_a.addEventListener('click', () => {
+    if (timerInterval) {
+        clearInterval(timerInterval); // タイマーを止める
+        timerInterval = null;         // 中身を空にする
+    }
+    countDown.textContent = "";        // 表示を消す
     content6_a.style.display = 'none';//コンテンツを非表示
     content2_2.style.display = 'none';//コンテンツを非表示
     content6_b.style.display = 'none';//コンテンツを非表示
@@ -157,6 +161,11 @@ btn6_a.addEventListener('click', () => {
     content1.style.display = 'block';
 });
 btn6_b.addEventListener('click', () => {
+    if (timerInterval) {
+        clearInterval(timerInterval); // タイマーを止める
+        timerInterval = null;         // 中身を空にする
+    }
+    countDown.textContent = "";        // 表示を消す
     content6_a.style.display = 'none';//コンテンツを非表示
     content2_2.style.display = 'none';//コンテンツを非表示
     content6_b.style.display = 'none';//コンテンツを非表示
