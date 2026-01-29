@@ -92,6 +92,7 @@ btn2_2.addEventListener('click', () => {
             }
         }
         const interval = setInterval(updateCountDown, 1000);
+        const timerInterval = setInterval(updateCountDown, 1000);
         updateCountDown();
     }
 }
