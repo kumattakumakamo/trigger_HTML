@@ -46,11 +46,8 @@ btn1.addEventListener('click', () => {//ボタンがクリックされたとき�
         content2.style.display = 'block';//もう一方のコンテンツを表示
     }
 });
-let resultElement;
 // 「次へ」ボタン
 btn2.addEventListener('click', () => {
-    const randomIndex = Math.floor(Math.random() * ngList.length);
-    const selectedAction = ngList[randomIndex];
     if (ngList.length === 0) return;
 
     // ボタンとコンテンツを非表示にする
@@ -58,8 +55,8 @@ btn2.addEventListener('click', () => {
     content2.style.display = 'none';
 
     // ランダムに1つ選ぶ
-    randomIndex = Math.floor(Math.random() * ngList.length);// 0からngList.length-1までのランダムな整数
-    selectedAction = ngList[randomIndex];// ランダムに選ばれた行
+    const randomIndex = Math.floor(Math.random() * ngList.length);// 0からngList.length-1までのランダムな整数
+    const selectedAction = ngList[randomIndex];// ランダムに選ばれた行
 
     // 結果を表示
     const resultElement = document.createElement('p');// 新しい<p>要素を作成
@@ -82,9 +79,7 @@ btn2_2.addEventListener('click', () => {
         content2_2.style.display = 'none';//コンテンツを非表示
 
         content3.style.display = 'block';//次のコンテンツを表示
-        if (resultElement) { // resultElementが存在する場合のみ実行
-            resultElement.style.display = 'block';
-        }
+        resultElement.style.display = 'block'; // 結果を表示
         function updateCountDown() {
             const now = new Date().getTime();
             const distance = targetTime - now;
