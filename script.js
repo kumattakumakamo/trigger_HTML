@@ -22,6 +22,9 @@ const resultDisplay = document.getElementById('result-display');
 
 const countDown = document.getElementById('countdown');//カウントダウン表示用要素
 
+const soundA = new Audio('拳銃を撃つ.mp3'); // 判定A用の音
+const soundB = new Audio('弾切れ(1).mp3'); // 判定B用の音（もし分けるなら）
+
 let ngList = [];
 let timerInterval = null;
 
@@ -130,6 +133,8 @@ btn5_a.addEventListener('click', () => {
     if (content5.style.display === 'none') {
         content5.style.display = 'block';//コンテンツを表示
     } else {
+        soundA.currentTime = 0; // 連続クリック時でも最初から再生させる
+        soundA.play();
         content5.style.display = 'none';//コンテンツを非表示
         content6_a.style.display = 'block';//次のコンテンツを表示
     }
@@ -138,6 +143,8 @@ btn5_b.addEventListener('click', () => {
     if (content5.style.display === 'none') {
         content5.style.display = 'block';//コンテンツを表示
     } else {
+        soundB.currentTime = 0; // 連続クリック時でも最初から再生させる
+        soundB.play();
         content5.style.display = 'none';//コンテンツを非表示
         content6_b.style.display = 'block';//次のコンテンツを表示
     }
