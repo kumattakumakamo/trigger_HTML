@@ -77,6 +77,7 @@ btn2_2.addEventListener('click', () => {
     } else {
         const targetTime = new Date().getTime() + 30000; // 30秒後のタイムスタンプを計算
         content2_2_2.style.display = 'none';//コンテンツを非表示
+        btn2_2.style.display = 'none';//ボタンを非表示
 
         content3.style.display = 'block';//次のコンテンツを表示
         //resultElement.style.display = 'block'; // 結果を表示
