@@ -143,6 +143,7 @@ btn5_b.addEventListener('click', () => {
 });
 btn6.addEventListener('click', () => {
     content6_a.style.display = 'none';//コンテンツを非表示
+    content2_2.style.display = 'none';//コンテンツを非表示
     content6_b.style.display = 'none';//コンテンツを非表示
     content1.style.display = 'block';//次のコンテンツを表示
 });
