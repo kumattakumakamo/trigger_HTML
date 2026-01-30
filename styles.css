@@ -7,85 +7,77 @@
     }
 
     /* --- styles.css のボタン部分を以下に書き換え --- */
-
     /* styles.css のボタン部分をアップデート */
 
     button.btn-flat {
         position: relative;
-        background: #111;
-        /* 真っ黒より少しだけグレーにすると質感が上がります */
+        background: #000;
+        /* 漆黒 */
         color: #fff;
-        padding: 18px 45px;
-        font-size: 0.85rem;
-        font-weight: 800;
-        letter-spacing: 0.4em;
-        /* さらに広げて「コードネーム」感を強調 */
+        padding: 16px 40px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        /* 文字の間隔を広げて「機密コード」感を演出 */
         text-transform: uppercase;
         border: none;
         cursor: pointer;
         outline: none;
         display: block;
-        margin: 25px auto;
-        min-width: 260px;
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        margin: 20px auto;
+        min-width: 240px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-        /* より鋭角な切り欠き */
-        clip-path: polygon(20px 0%, 100% 0%,
-                100% calc(100% - 20px),
-                calc(100% - 20px) 100%,
+        /* 左右の対角を大胆にカットしたシェイプ */
+        clip-path: polygon(12px 0%, 100% 0%,
+                100% calc(100% - 12px),
+                calc(100% - 12px) 100%,
                 0% 100%,
-                0% 20px);
+                0% 12px);
     }
 
-    /* 強調したL字ライン（左上） */
+    /* 左上の装飾：アクセントカラーのL字ライン */
     button.btn-flat::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        width: 35px;
-        /* ラインを長く */
-        height: 35px;
-        /* 2pxの太いラインと、内側の1pxの細いラインを重ねて精密感を出す */
-        border-top: 3px solid #fff;
-        border-left: 3px solid #fff;
-        /* 角の一部だけを光らせるようなグラデーション */
-        mask-image: linear-gradient(135deg, white 40%, transparent 80%);
-        -webkit-mask-image: linear-gradient(135deg, white 40%, transparent 80%);
-        opacity: 0.9;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid #fff;
+        /* ここを赤や青に変えると雰囲気が変わります */
+        border-left: 2px solid #fff;
+        opacity: 0.3;
         transition: 0.3s;
     }
 
-    /* 反対側のL字ライン（右下） */
+    /* 右下の装飾：3つの小さなドット（ステータスランプ風） */
     button.btn-flat::after {
-        content: '';
+        content: '...';
         position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 15px;
-        height: 15px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-        border-right: 2px solid rgba(255, 255, 255, 0.5);
-        transition: 0.3s;
+        bottom: 2px;
+        right: 15px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.5);
     }
 
-    /* タップ時の派手な反応 */
+    /* スマホでタップした時のインタラクション */
     button.btn-flat:active {
-        background: #fff;
-        color: #000;
-        transform: scale(0.92) translateY(2px);
-        letter-spacing: 0.5em;
+        background: #222;
+        /* わずかに明るく */
+        transform: scale(0.96);
+        /* 物理的な押し込み感 */
+        letter-spacing: 0.4em;
+        /* タップ時に文字が少し広がる演出 */
+        filter: brightness(1.5);
     }
 
-    /* タップ時にL字ラインを外側に飛ばす演出 */
-    button.btn-flat:active::before {
-        transform: translate(-10px, -10px);
-        opacity: 0;
-    }
-
-    button.btn-flat:active::after {
-        transform: translate(10px, 10px);
-        opacity: 0;
+    /* 判定ボタンなど、重要なボタン用のバリエーション */
+    button.btn-flat#b4,
+    button.btn-flat#b5_a,
+    button.btn-flat#b5_b {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .fixed-header {
