@@ -185,7 +185,6 @@ btn6_b.addEventListener('click', () => {
 
     // 追加：結果表示エリアを空にする
     ngContainer.style.color = "black";
-    ngContainer.style.fontSize = "1.8rem";
     resultDisplay.textContent = "";
     // 追加：隠していた「次へ」ボタンを再表示させておく
     btn2.style.display = 'block';
