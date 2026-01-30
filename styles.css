@@ -8,31 +8,18 @@
 
     /* styles.css の .btn-flat を書き換え */
     button.btn-flat {
-        position: relative;
-        background: transparent;
-        /* 背景を抜く */
-        color: #000;
-        border: 2px solid #000;
-        /* 太めの枠線 */
-        padding: 14px 28px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        /* 文字間隔を広げて高級感を出す */
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-        overflow: hidden;
-        cursor: pointer;
-        border-radius: 0;
-        /* あえて角を丸めないのがクール */
-    }
-
-    /* タップした時の反応（スマホ向け） */
-    button.btn-flat:active {
         background: #000;
         color: #fff;
-        transform: scale(0.95);
-        /* 押し込んだ感覚を出す */
+        padding: 15px 30px;
+        border: none;
+        /* 右上と左下を斜めにカット */
+        clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%);
+        transition: background 0.3s;
+    }
+
+    button.btn-flat:active {
+        background: #444;
+        /* タップ時に少し明るく */
     }
 
     .fixed-header {
