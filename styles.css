@@ -6,20 +6,75 @@
         color: rgb(0, 0, 0);
     }
 
-    /* styles.css の .btn-flat を書き換え */
+    /* --- styles.css のボタン部分を以下に書き換え --- */
+
     button.btn-flat {
+        position: relative;
         background: #000;
+        /* 漆黒 */
         color: #fff;
-        padding: 15px 30px;
+        padding: 16px 40px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        letter-spacing: 0.25em;
+        /* 文字間を広くして「機密文書」感を演出 */
+        text-transform: uppercase;
         border: none;
-        /* 右上と左下を斜めにカット */
-        clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%);
-        transition: background 0.3s;
+        cursor: pointer;
+        outline: none;
+        display: block;
+        margin: 15px auto;
+        min-width: 220px;
+        transition: all 0.2s ease;
+
+        /* 切り欠きデザイン：四隅のうち対角を削ることでシャープな印象に */
+        clip-path: polygon(15px 0%, 100% 0%,
+                100% calc(100% - 15px),
+                calc(100% - 15px) 100%,
+                0% 100%,
+                0% 15px);
     }
 
+    /* 装飾：左上の小さなライン（IDタグのようなイメージ） */
+    button.btn-flat::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 20px;
+        width: 20px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+    }
+
+    /* 装飾：右下のドット（センサーや通信ランプをイメージ） */
+    button.btn-flat::after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 20px;
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        /* ここを #ff0000 にすると警告感が出ます */
+        border-radius: 50%;
+        opacity: 0.6;
+    }
+
+    /* スマホでタップした時のインタラクション */
     button.btn-flat:active {
-        background: #444;
-        /* タップ時に少し明るく */
+        background: #333;
+        /* 少し明るくして反応を明示 */
+        transform: scale(0.96);
+        /* 物理的に押し込んだような動き */
+        filter: brightness(1.2);
+    }
+
+    /* 判定ボタンなど、特に重要なボタンにだけ「警告色」のバリエーションを作る場合 */
+    /* HTML側で <button class="btn-flat alert"> のように使います */
+    button.btn-flat.alert {
+        background: #800000;
+        /* 深い赤 */
     }
 
     .fixed-header {
