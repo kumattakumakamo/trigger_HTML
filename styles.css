@@ -7,77 +7,65 @@
     }
 
     /* --- styles.css のボタン部分を以下に書き換え --- */
-    /* styles.css のボタン部分をアップデート */
-
     button.btn-flat {
         position: relative;
         background: #000;
-        /* 漆黒 */
         color: #fff;
-        padding: 16px 40px;
-        font-size: 0.9rem;
-        font-weight: 700;
-        letter-spacing: 0.3em;
-        /* 文字の間隔を広げて「機密コード」感を演出 */
+        padding: 18px 40px;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.35em;
         text-transform: uppercase;
-        border: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        /* 微かな境界線 */
         cursor: pointer;
         outline: none;
         display: block;
-        margin: 20px auto;
-        min-width: 240px;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin: 24px auto;
+        min-width: 260px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-        /* 左右の対角を大胆にカットしたシェイプ */
-        clip-path: polygon(12px 0%, 100% 0%,
-                100% calc(100% - 12px),
-                calc(100% - 12px) 100%,
-                0% 100%,
-                0% 12px);
+        /* 角カットをよりシャープに */
+        clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px);
+
+        /* ネオン管のようなグロー効果（スマホの有機ELで映えます） */
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
     }
 
-    /* 左上の装飾：アクセントカラーのL字ライン */
+    /* ボタンの内側に走るスキャンラインのような装飾 */
     button.btn-flat::before {
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        border-top: 2px solid #fff;
-        /* ここを赤や青に変えると雰囲気が変わります */
-        border-left: 2px solid #fff;
-        opacity: 0.3;
-        transition: 0.3s;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent);
+        transition: all 0.6s;
     }
 
-    /* 右下の装飾：3つの小さなドット（ステータスランプ風） */
-    button.btn-flat::after {
-        content: '...';
-        position: absolute;
-        bottom: 2px;
-        right: 15px;
-        font-size: 14px;
-        letter-spacing: 2px;
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    /* スマホでタップした時のインタラクション */
+    /* アクティブ（タップ）時の演出を強化 */
     button.btn-flat:active {
-        background: #222;
-        /* わずかに明るく */
-        transform: scale(0.96);
-        /* 物理的な押し込み感 */
-        letter-spacing: 0.4em;
-        /* タップ時に文字が少し広がる演出 */
-        filter: brightness(1.5);
+        background: #fff;
+        color: #000;
+        transform: scale(0.92);
+        /* より深く沈み込む */
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        letter-spacing: 0.5em;
     }
 
-    /* 判定ボタンなど、重要なボタン用のバリエーション */
-    button.btn-flat#b4,
-    button.btn-flat#b5_a,
+    /* 特殊ボタン（判定など）にアクセントカラーを付与 */
+    button.btn-flat#b5_a {
+        border-left: 4px solid #ff003c;
+        /* 警告色 */
+    }
+
     button.btn-flat#b5_b {
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-left: 4px solid #00f2ff;
+        /* 潜入色 */
     }
 
     .fixed-header {
