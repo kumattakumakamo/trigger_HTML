@@ -8,73 +8,77 @@
 
     /* --- styles.css のボタン部分を以下に書き換え --- */
 
+    /* styles.css のボタン部分をアップデート */
+
     button.btn-flat {
         position: relative;
         background: #000;
         /* 漆黒 */
         color: #fff;
         padding: 16px 40px;
-        font-size: 0.95rem;
-        font-weight: bold;
-        letter-spacing: 0.25em;
-        /* 文字間を広くして「機密文書」感を演出 */
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        /* 文字の間隔を広げて「機密コード」感を演出 */
         text-transform: uppercase;
         border: none;
         cursor: pointer;
         outline: none;
         display: block;
-        margin: 15px auto;
-        min-width: 220px;
-        transition: all 0.2s ease;
+        margin: 20px auto;
+        min-width: 240px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-        /* 切り欠きデザイン：四隅のうち対角を削ることでシャープな印象に */
-        clip-path: polygon(15px 0%, 100% 0%,
-                100% calc(100% - 15px),
-                calc(100% - 15px) 100%,
+        /* 左右の対角を大胆にカットしたシェイプ */
+        clip-path: polygon(12px 0%, 100% 0%,
+                100% calc(100% - 12px),
+                calc(100% - 12px) 100%,
                 0% 100%,
-                0% 15px);
+                0% 12px);
     }
 
-    /* 装飾：左上の小さなライン（IDタグのようなイメージ） */
+    /* 左上の装飾：アクセントカラーのL字ライン */
     button.btn-flat::before {
         content: '';
         position: absolute;
-        top: 6px;
-        left: 20px;
+        top: 0;
+        left: 0;
         width: 20px;
-        height: 1px;
-        background: rgba(255, 255, 255, 0.5);
+        height: 20px;
+        border-top: 2px solid #fff;
+        /* ここを赤や青に変えると雰囲気が変わります */
+        border-left: 2px solid #fff;
+        opacity: 0.3;
         transition: 0.3s;
     }
 
-    /* 装飾：右下のドット（センサーや通信ランプをイメージ） */
+    /* 右下の装飾：3つの小さなドット（ステータスランプ風） */
     button.btn-flat::after {
-        content: '';
+        content: '...';
         position: absolute;
-        bottom: 8px;
-        right: 20px;
-        width: 4px;
-        height: 4px;
-        background: #fff;
-        /* ここを #ff0000 にすると警告感が出ます */
-        border-radius: 50%;
-        opacity: 0.6;
+        bottom: 2px;
+        right: 15px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.5);
     }
 
     /* スマホでタップした時のインタラクション */
     button.btn-flat:active {
-        background: #333;
-        /* 少し明るくして反応を明示 */
+        background: #222;
+        /* わずかに明るく */
         transform: scale(0.96);
-        /* 物理的に押し込んだような動き */
-        filter: brightness(1.2);
+        /* 物理的な押し込み感 */
+        letter-spacing: 0.4em;
+        /* タップ時に文字が少し広がる演出 */
+        filter: brightness(1.5);
     }
 
-    /* 判定ボタンなど、特に重要なボタンにだけ「警告色」のバリエーションを作る場合 */
-    /* HTML側で <button class="btn-flat alert"> のように使います */
-    button.btn-flat.alert {
-        background: #800000;
-        /* 深い赤 */
+    /* 判定ボタンなど、重要なボタン用のバリエーション */
+    button.btn-flat#b4,
+    button.btn-flat#b5_a,
+    button.btn-flat#b5_b {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .fixed-header {
