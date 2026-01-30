@@ -6,47 +6,33 @@
         color: rgb(0, 0, 0);
     }
 
+    /* styles.css の .btn-flat を書き換え */
     button.btn-flat {
         position: relative;
-        /* パーツの基準位置 */
+        background: transparent;
+        /* 背景を抜く */
+        color: #000;
+        border: 2px solid #000;
+        /* 太めの枠線 */
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        /* 文字間隔を広げて高級感を出す */
+        text-transform: uppercase;
+        transition: all 0.3s ease;
         overflow: hidden;
-        /* はみ出たパーツを隠す */
+        cursor: pointer;
+        border-radius: 0;
+        /* あえて角を丸めないのがクール */
+    }
 
-        /* 見た目 */
+    /* タップした時の反応（スマホ向け） */
+    button.btn-flat:active {
         background: #000;
-        /* 背景は黒 */
         color: #fff;
-        /* 文字は白 */
-        padding: 12px 24px;
-    }
-
-    /* 左下からスライドしてくるパーツ */
-    button.btn-flat:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -150%;
-        /* 左側に待機 */
-        width: 150%;
-        height: 500%;
-        background: rgb(232, 225, 223);
-        transform: rotate(45deg);
-        transition: all .5s;
-    }
-
-    /* 右上からスライドしてくるパーツ */
-    button.btn-flat:after {
-        content: '';
-        position: absolute;
-        top: -400%;
-        /* 上側に待機 */
-        right: -150%;
-        /* 右側に待機 */
-        width: 150%;
-        height: 500%;
-        background: rgb(232, 225, 223);
-        transform: rotate(45deg);
-        transition: all .5s;
+        transform: scale(0.95);
+        /* 押し込んだ感覚を出す */
     }
 
     .fixed-header {
